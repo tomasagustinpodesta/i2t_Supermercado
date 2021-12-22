@@ -117,6 +117,39 @@ public class PuestoCobro {
      * @return true (operacion exitosa) o false (operacion fallida)
      */
     public Boolean ingresarDinero(String tipoValor, Double denominacion, Integer cantidadDineroIngresado){
+        if(existeTipoValorYDeno(tipoValor, denominacion)){
+            HashMap<Double, Integer> mapa = valoresDisponibles.get(tipoValor);
+            mapa.put(denominacion, mapa.get(denominacion) + cantidadDineroIngresado);
+            return true;
+        } else return false;
+        
+    }
+    
+    /**
+     * Este metodo sirve para registrar un egreso de dinero en el sistema
+     * @param tipoValor: Si es billete o moneda
+     * @param denominacion: tamanio del billete o moneda
+     * @param cantidadDineroIngresado: cantidad del dinero ingresado
+     * @return true (operacion exitosa) o false (operacion fallida)
+     */
+    public Boolean retirarDinero(String tipoValor, Double denominacion, Integer cantidadDineroEgresado){
+        HashMap<Double, Integer> mapa = valoresDisponibles.get(tipoValor);
+        if(existeTipoValorYDeno(tipoValor, denominacion)){
+            if(mapa.get(denominacion) >=  cantidadDineroEgresado){
+                mapa.put(denominacion, mapa.get(denominacion) - cantidadDineroEgresado);
+                return true;
+            } else return false;
+        } else return false;
+    }
+    
+    /**
+     * Metodo resultado de refactorizacion, indica valida si se ingreso bien el tipo de valor y denominacion
+     * @param tipoValor: billete o moneda
+     * @param denominacion: denominacion del billete o moneda en cuestion
+     * @return true (ambos son validos) o false (ambos o uno no son validos)
+     */
+    public Boolean existeTipoValorYDeno(String tipoValor, Double denominacion){
+        Boolean result = true;
         if(tipoValor != "Billete" || tipoValor != "Moneda"){
             return false;
         }
@@ -124,9 +157,6 @@ public class PuestoCobro {
         if(!valoresDisponibles.containsKey(denominacion)){
             return false;
         }
-        
-        HashMap<Double, Integer> mapa = valoresDisponibles.get(tipoValor);
-        mapa.put(denominacion, mapa.get(denominacion) + cantidadDineroIngresado);
         return true;
     }
 }
