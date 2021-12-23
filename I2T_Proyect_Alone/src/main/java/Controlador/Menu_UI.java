@@ -39,24 +39,87 @@ public class Menu_UI {
             System.out.println("2) Cerrar programa");
             
             Scanner myObj = new Scanner(System.in);  // Create a Scanner object
-            String option = myObj.nextLine();        // Input
+            String option = myObj.nextLine();        // Input de opciones del inicio del programa
             
+            //Abre un puesto
             if(option.equals("1")){
+                
+                Boolean bandera;
+                Apertura_IU apertura_ui = new Apertura_IU();
+                puestoCobro = new PuestoCobro();
+                /*
+                Siguiente codigo desarrollo comentado porque no tengo desarrollado apertura,
+                cobro,retiro, cambio y cierre
+                */
+                /* bandera = apertura_ui.abrir();
+                if(!bandera){
+                    break;
+                }
+                */
                 System.out.println("Operaciones disponibles");
                 Boolean j = true;
                 while(j){
                     System.out.println("Seleccione una opcion:");
-                    System.out.println("1) Apertura");
-                    System.out.println("2) Cobro");
-                    System.out.println("3) Retiro");
-                    System.out.println("4) Cambio");
-                    System.out.println("5) Cierre");
+                    System.out.println("1) Cobro");
+                    System.out.println("2) Retiro");
+                    System.out.println("3) Cambio");
+                    System.out.println("4) Cierre");
                    
-                    String option2 = myObj.nextLine(); // Input, Completar
+                    String option2 = myObj.nextLine(); // Input de opciones del puesto
                     
+                    //Distintas opciones
+                    /*Si la opción es “Cobro” debe crear una instancia de “C05” e invocar a su
+método “cobrar” enviándole como parámetro la instancia definida en C03F02.
+                    
+i. Si la opción es “Retiro” debe crear una instancia de “C06” e invocar a su
+método “retirar” enviándole como parámetro la instancia definida en C03F02.
+                    
+j. Si la opción es “Cambio” debe crear una instancia de “C07” e invocar a su
+método “cambiar” enviándole como parámetro la instancia definida en
+C03F02*/
+                    switch(option2){
+                        //Cobro
+                        case "1":
+                            System.out.println("Usted selecciono cobro");
+                            /* 
+                            Cobro_UI cobro_ui = new Cobro_UI();
+                            cobro_ui.cobrar();
+                            */
+                        break;
+                        
+                        //Retiro
+                        case "2":
+                            System.out.println("Usted selecciono retiro");
+                            /*
+                            Retiro_UI retiro_ui = new Retiro_UI();
+                            retiro_ui.retirar();
+                            */
+                        break;
+                        
+                        //Cambio
+                        case "3":
+                            System.out.println("Usted selecciono cambio");
+                            /*
+                            Cambio_UI cambio_ui = new Cambio_UI();
+                            cambio_ui.cambiar();
+                            */
+                        break;
+                        
+                        //Cierre
+                        case "4":
+                            System.out.println("Usted selecciono cierre de puesto");
+                            /*
+                            Cierrre_UI cierre_ui = new Cierre_UI();
+                            cierre_ui.cerrar();
+                            */
+                            j = false;
+                        break;
+                    }
                 }
+              //Termina el ciclo y el programa
             } else if(option.equals("2")){
-                   
+                   System.out.println("Usted selecciono terminar programa");
+                   i = false;
                   }
         }
     }
