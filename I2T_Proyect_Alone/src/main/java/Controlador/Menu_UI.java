@@ -45,7 +45,7 @@ public class Menu_UI {
             if(option.equals("1")){
                 
                 Boolean bandera;
-                Apertura_IU apertura_ui = new Apertura_IU();
+                Apertura_UI apertura_ui = new Apertura_UI();
                 puestoCobro = new PuestoCobro();
                 /*
                 Siguiente codigo desarrollo comentado porque no tengo desarrollado apertura,
@@ -68,15 +68,6 @@ public class Menu_UI {
                     String option2 = myObj.nextLine(); // Input de opciones del puesto
                     
                     //Distintas opciones
-                    /*Si la opción es “Cobro” debe crear una instancia de “C05” e invocar a su
-método “cobrar” enviándole como parámetro la instancia definida en C03F02.
-                    
-i. Si la opción es “Retiro” debe crear una instancia de “C06” e invocar a su
-método “retirar” enviándole como parámetro la instancia definida en C03F02.
-                    
-j. Si la opción es “Cambio” debe crear una instancia de “C07” e invocar a su
-método “cambiar” enviándole como parámetro la instancia definida en
-C03F02*/
                     switch(option2){
                         //Cobro
                         case "1":
