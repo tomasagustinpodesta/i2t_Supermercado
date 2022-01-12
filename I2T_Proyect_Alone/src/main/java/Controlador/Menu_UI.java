@@ -115,4 +115,12 @@ public class Menu_UI {
         }
     }
     
+    public boolean abrir(PuestoCobro puestoCobro){
+        Scanner myObj = new Scanner(System.in);  // Crear objeto scanner
+        System.out.println("Enter username");
+        String userName = myObj.nextLine();  // ingresar dato
+        
+        return true; //para que no se enoje netbeans
+    }
+    
 }
