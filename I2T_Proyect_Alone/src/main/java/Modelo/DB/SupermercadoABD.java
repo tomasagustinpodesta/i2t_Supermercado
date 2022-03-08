@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Modelo.DB;
+import Modelo.*;
 
 /**
  *
@@ -11,5 +12,11 @@ package Modelo.DB;
  * en la clase Supermercado
  */
 public class SupermercadoABD {
-    
+    //Variables instancia
+    //Constructor
+    //Metodos
+    public Supermercado leer(Integer input){
+        Supermercado sup = new Supermercado();
+        return sup; //incompleto, para que no se enoje netbeans
+    }
 }

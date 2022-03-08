@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Modelo.DB;
-
+import Modelo.*;
 /**
  *
  * @author Tomy
@@ -11,5 +11,11 @@ package Modelo.DB;
  * en la clase Cajero
  */
 public class CajeroABD {
-    
+    //Variables instancia
+    //Constructor
+    //Metodos
+    public Cajero leer(Integer input){
+        Cajero caj = new Cajero();
+        return caj; //incompleto, para que no se enoje netbeans
+    }
 }

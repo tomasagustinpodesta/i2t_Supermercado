@@ -1,6 +1,7 @@
 package Controlador;
 import java.util.*;
 import Modelo.*;
+import Modelo.DB.*;
 import java.time.format.DateTimeFormatter;  
 import java.time.LocalDateTime; 
 
@@ -116,10 +117,83 @@ public class Menu_UI {
     }
     
     public boolean abrir(PuestoCobro puestoCobro){
-        Scanner myObj = new Scanner(System.in);  // Crear objeto scanner
-        System.out.println("Enter username");
-        String userName = myObj.nextLine();  // ingresar dato
+        System.out.println("Iniciando apertura de caja");
         
+        Scanner ingreso = new Scanner(System.in);  // Crear objeto scanner
+        
+        //Se ingresan datos del supermercado, sucursal, puesto y cajero
+        
+        //Supermercado
+        System.out.println("Ingresar cuit de supermercado");
+        Integer cuitSuper = ingreso.nextInt();  // ingresar dato supermercado
+        Supermercado superm; //crear instancia supermercado
+        SupermercadoABD supermABD = new SupermercadoABD(); //crear instancia supermercadoABD
+        superm = supermABD.leer(cuitSuper); //Metodo incompleto Leer
+        if(Objects.isNull(superm)){ // Verificar existencia del input en BD
+            System.out.println("error");
+            return false;
+        } 
+        
+        
+        //Sucursal
+        Sucursal sucursal; //crear instancia sucursal
+        SucursalABD sucursalABD = new SucursalABD(); //crear instancia sucursalABD
+        System.out.println("Ingresar nombre de sucursal");
+        String numeroSucursal = ingreso.nextLine();  // Ingresar dato sucursal
+        sucursal = sucursalABD.leer(numeroSucursal); //Metodo incompleto Leer
+        if(Objects.isNull(sucursal)){ // Verificar existencia del input en BD
+            System.out.println("error");
+            return false;
+        } 
+        
+        //Puesto
+        Puesto puesto;
+        PuestoABD puestoABD = new PuestoABD();
+        System.out.println("Ingresar numero de puesto");
+        Integer numeroPuesto = ingreso.nextInt();
+        puesto = puestoABD.leer(numeroPuesto);
+        if(Objects.isNull(puesto)){ // Verificar existencia del input en BD
+            System.out.println("error");
+            return false;
+        } 
+        
+        if(puesto.getUtilizado() == true){ // Verificar si el puesto esta en uso actualmente
+            System.out.println("Puesto en uso");
+            return false;
+        } 
+        
+        //Cajero
+        Cajero cajero;
+        CajeroABD cajeroABD = new CajeroABD();
+        System.out.println("Ingresar numero de puesto");
+        Integer dni = ingreso.nextInt();
+        cajero = cajeroABD.leer(dni);
+        
+        if(Objects.isNull(cajero)){ // Verificar existencia del input en BD
+            System.out.println("error");
+            return false;
+        } 
+        
+        if(cajero.getTrabajando() == true){ // Verificar si el cajero esta trabajando actualmente
+            System.out.println("Puesto en uso");
+            return false;
+        } 
+        
+        Valores valores = new Valores();
+        HashMap<String, HashMap<Double, String>> mapa = valores.getValoresDisponiblesMapa2D();
+        
+        for(Map.Entry<String, HashMap<Double, String>> entry : mapa.entrySet()) {
+            String key = entry.getKey();
+            Object value = entry.getValue();
+            
+            for(Map.Entry<Double, String> entry2 : entry.getValue().entrySet()) {
+            String key2 = entry.getKey();
+            Object value2 = entry.getValue();
+            
+            System.out.println("Tipo:" + key + "  " + "Denominacion: " + key2);
+            System.out.println("");
+            }
+        }
         return true; //para que no se enoje netbeans
     }
     

@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Modelo.DB;
-
+import Modelo.*;
 /**
  *
  * @author Tomy
@@ -11,5 +11,11 @@ package Modelo.DB;
  * en la clase Puesto
  */
 public class PuestoABD {
-    
+    //Variables instancia
+    //Constructor
+    //Metodos
+    public Puesto leer(Integer input){
+        Puesto pue = new Puesto();
+        return pue; //incompleto, para que no se enoje netbeans
+    }
 }

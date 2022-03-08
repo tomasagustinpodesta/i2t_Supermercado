@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Modelo.DB;
-
+import Modelo.*;
 /**
  *
  * @author Tomy
@@ -11,5 +11,11 @@ package Modelo.DB;
  * en la clase Sucursal
  */
 public class SucursalABD {
-    
+    //Variables instancia
+    //Constructor
+    //Metodos
+    public Sucursal leer(String input){
+        Sucursal suc = new Sucursal();
+        return suc; //incompleto, para que no se enoje netbeans
+    }
 }

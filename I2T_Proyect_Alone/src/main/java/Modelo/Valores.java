@@ -18,12 +18,12 @@ public class Valores {
      */
     public HashMap<String, HashMap<Double, String>> getValoresDisponiblesMapa2D(){
         return valoresDisponibles; //testear
-    }
+    } //String: bille o mone, Double: denominacion, String: representacion textual de lo anterior
     
     /**
      * Este metodo devuelve los valores disponibles de billetes o monedas, segun se ingrese
-     * @param La palabra "Billete" o "Moneda"
-     * @throws Todos los valores disponibles de los billetes o monedas en pesos argentinos
+     * @param: La palabra "Billete" o "Moneda"
+     * @return: Todos los valores disponibles de los billetes o monedas en pesos argentinos
      */
     public HashMap<Double, String> getSegDimValoresDisponiblesMapa2D(String billeOMoneda){
         if(billeOMoneda == "Billete" || billeOMoneda == "Moneda"){
